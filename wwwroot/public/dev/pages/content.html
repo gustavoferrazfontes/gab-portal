@@ -1,0 +1,195 @@
+<header id="header" class="navbar-fixed-top">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			                    <span class="sr-only">Toggle navigation</span>
+			                    <span class="icon-bar"></span>
+			                    <span class="icon-bar"></span>
+			                    <span class="icon-bar"></span>
+			                </button>
+
+				<a class="nav-brand nav-logo" href=""> GLOBAL AZURE BOOTCAMP</a>
+			</div>
+
+			<div class="collapse navbar-collapse navbar-geo" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="" ng-click="vm.scroll('#intro')">inscrição</a></li>
+					<li><a href="" ng-click="vm.scroll('#description')">O Evento</a></li>
+					<li><a href="" ng-click="vm.scroll('#grade')">Agenda</a></li>
+					<li><a href="" ng-click="vm.scroll('#palestrantes')">Palestrantes</a></li>
+					<li><a href="" ng-click="vm.scroll('#partiners')">Parceiros</a></li>
+					<li><a href="" data-toggle="modal" data-target="#contact">Seja um parceiro</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<div>
+	<section id="intro" class="section home-second">
+		<div class="bg-img"></div>
+		<div class="container">
+			<div class="row showcase text-center">
+				<div class="col-md-12">
+					<div class="wow bounceInDown">
+						<h2 class="nav-logo">Global Azure Bootcamp</h2>
+						<a href="https://goo.gl/LpWFF4" target="_blank" class="btn btn-theme">inscreva-se!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="description" class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="section_title text-center">
+						<h2>O Evento</h2>
+					</div>
+				</div>
+			</div>
+			<article>
+				<p>
+					O azure bootcamp é um evento apoiado pela Microsoft que roda, simultaneamente, em mais de 180 cidades ao redor do mundo.
+					Com grande visibilidade e aderência no mercado, este evento tem como objetivo apresentar as novidades da plataforma
+					em nuvem do Azure, quais as melhores práticas de arquitetura da infraestrutura e serviços em nuvem; além disso, este
+					evento visa dar direcionamentos e dicas sobre a plataforma do Azure. O Azure Bootcamp tem alcançando profissionais com
+					níveis de senioridade muito acima do mercado.
+				</p>
+				<p>
+					Buscamos parceiros interessados não só em apoiar o evento, mas também que busque estar presente em um evento a nível global
+					e que proporciona alavancar o alcance de pessoas, aumentando a conversão da sua empresa. Para esta parceria, buscamos
+					empresas que tenham interesse em fornecer suporte financeiro com o objetivo de ofertarmos um ambiente com mais conforto,
+					coffee-break, camisetas e muita diversão para os participantes deste evento que, a cada ano que passa, toma corpo e
+					tem um alcance fantástico.
+				</p>
+			</article>
+		</div>
+	</section>
+	<section id="grade" class="section">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-xs-12">
+					<div class="section_title text-center">
+						<h2>Agenda</h2>
+					</div>
+				</div>
+				<article class="col-md-6 center">
+					<table class="table table-hover text-center">
+						<thead>
+							<tr>
+								<th class="text-center">Horario</th>	
+								<th></th>
+							</tr>
+						</thead>
+						<tbody ng-repeat="item in vm.schedule">
+							<tr>
+								<td>
+									<time class="time-theme" ng-bind="item.time"></time>
+								</td>
+								<td>
+									{{item.talk}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- palestrantes section start -->
+	<section id="palestrantes" class="section">
+		<div class="section_title text-center">
+			<h2>Palestrantes</h2>
+		</div>
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-4" ng-repeat="speaker in vm.speakers">
+					<div class="">
+						<h4>André Baltieri</h4>
+						<div class="pricing_circle">
+						</div>
+						<table class="table borderless">
+							<tbody>
+								<tr>
+									<td ng-bind="speaker.name"></td>
+								</tr>
+								<tr>
+									<td ng-bind="speaker.description"></td>
+								</tr>
+								<tr>
+									<div class="col-xs-12 twelvecol up_fade animated fadeInUp text-center" ng-show="speaker.social.length">
+										<ul class="footer_social fade_in animated fadeIn list-inline" >
+											<li ng-repeat="sm in speaker.social">
+												<a href="{{sm.link}}" target="_blank">
+													<i class="{{sm.icon}}"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section id="partiners" class="section_wrapper section bg-gray">
+		<div class="section_title text-center">
+			<h2>Parceiros</h2>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="container">
+					<div class="row text-center">
+						<div class="col-md-4 col-sm-4 facts" ng-repeat="item in vm.partners">
+							<img src="{{item.img}}" alt="logo" class="img-responsive">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	
+	<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Contato</h4>
+				</div>
+				<div class="modal-body">
+
+					<form action="mailto:andrebaltieri@gmail.com" method="POST" enctype="text/plain">
+						<div class="form-group">
+							<label for="name2">Nome</label>
+							<input class="form-control" id="name2" name="name" onblur="if(this.value == '') this.value='Name'" onfocus="if(this.value == 'Name') this.value=''"
+								type="text" value="Name">
+						</div>
+						<div class="form-group">
+							<label for="email2">Email</label>
+							<input class="form-control" id="email2" name="email" type="text" onfocus="if(this.value == 'E-mail') this.value='';" onblur="if(this.value == '') this.value='E-mail';"
+								value="E-mail">
+						</div>
+						<div class="form-group">
+							<label for="message2">Mensagem</label>
+							<textarea class="form-control" id="message2" name="message" onblur="if(this.value == '') this.value='Message'" onfocus="if(this.value == 'Message') this.value=''">Message</textarea>
+						</div>
+						<div class="text-right">
+							<button type="submit" class="btn btn-theme">Enviar</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
